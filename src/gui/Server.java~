@@ -1,0 +1,47 @@
+package gui;
+
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    final int PORT = 5000;
+    
+    ArrayList<Client> clients;
+    ServerSocket server;
+    Socket client;
+    
+    public Server() {
+        clients = new ArrayList<Client>();
+    }
+    
+    public void go() {
+        server = new ServerSocket(PORT);
+        
+        while (true) {
+            client = server.accept();
+        }
+    }
+    
+    class Client extends Thread {
+        Socket socket;
+        BufferedReader input;
+        PrintWriter output;
+            
+            public Client(Socket socket) {
+            this.socket = socket;
+            
+            try {
+                input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                outout = new PrintWriter(socket.getOutputStream());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        public void run() {
+            String context = input.read();
+            System.out.println("Client: " + context);
+            output.println("Connected to server");
+        }
+    }
+}

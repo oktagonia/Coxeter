@@ -1,0 +1,20 @@
+package csp;
+
+import euclid.Point;
+
+public class EqualityConstraint implements Constraint {
+    Point A, B;
+    
+    public EqualityConstraint(Point a, Point b) {
+        this.A = a;
+        this.B = b;
+    }
+    
+    public double error() {
+        return 1000 * Math.pow(A.distance(B), 2);
+    }
+    
+    public String toString() {
+        return String.format("%f", error());
+    }
+}

@@ -1,0 +1,25 @@
+package csp;
+
+import euclid.Line;
+import euclid.GeometricObject;
+
+public class EqualLength implements Constraint {
+    private Line a, b;
+    
+    public EqualLength(Line a, Line b) {
+        this.a = a;
+        this.b = b;
+    }
+    
+    public double error() {
+        return Math.pow(a.distance() - b.distance(), 2);
+    }
+    
+    public String toString() {
+        return "|" + a.label() + "| = |" + b.label() + "|";
+    }
+    
+    public GeometricObject[] objects() {
+        return new GeometricObject[] { a, b };
+    }
+}

@@ -1,0 +1,12 @@
+package gui;
+
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+
+import java.awt.Image;
+
+public class CoxeterButton extends JButton {
+    public CoxeterButton(Image icon) {
+        b.setIcon(new ImageIcon(icon));
+    }
+}

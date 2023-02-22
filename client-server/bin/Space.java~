@@ -1,0 +1,44 @@
+package euclid;
+
+import java.util.ArrayList;
+
+import csp.*;
+
+import euclid.Parameter;
+import euclid.GeometricObject;
+import euclid.Line;
+import euclid.Point;
+
+public class Space {
+    public Constraints constraints;
+    public Parameters parameters;
+    public ArrayList<GeometricObject> objects;
+    
+    public Space() {
+        constraints = new Constraints();
+        parameters = new Parameters();
+        objects = new ArrayList<GeometricObject>();
+    }
+    
+    public ArrayList<Line> lines() {
+        ArrayList<Line> lines = new ArrayList<Line>();
+        for (GeometricObject object: objects) {
+            if (object instanceof Line) {
+                lines.add((Line) object);
+            }
+        }
+        
+        return lines;
+    }
+    
+    public ArrayList<Point> points() {
+        ArrayList<Point> points = new ArrayList<Point>();
+        for (GeometricObject object: objects) {
+            if (object instanceof Point) {
+                points.add((Point) object);
+            }
+        }
+        
+        return points;
+    }
+}

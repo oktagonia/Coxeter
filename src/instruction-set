@@ -1,0 +1,19 @@
+CLIENT -> SERVER
+
+Message     := [Tool, Instruction, Selection]
+Tool        := The enum Tool
+Selection   := The selection
+Instruction := CLICK <x> <y> 
+             | LOCK
+             | UNLOCK
+             | MIDPOINT
+             | INSPECT
+             | CONSTRAINTS
+             | DELETE
+             | LOAD
+             | ADD <constraint>
+
+SERVER -> CLIENT
+
+Message := [Instruction]
+Instruction := <shape type> x y

@@ -1,0 +1,24 @@
+package csp;
+
+import euclid.Point;
+
+public class EqualPoint implements Constraint {
+    Point A, B;
+    
+    public EqualityConstraint(Point a, Point b) {
+        this.A = a;
+        this.B = b;
+    }
+    
+    public double error() {
+        return Math.pow(A.distance(B), 2);
+    }
+    
+    public GeometricObject[] objects() {
+        return new GeometricObject[] { A, B };
+    }
+    
+    public String xml() {
+        return "<constraint type='EqualPoint'>" + a.xml() = b.xml() "</constraint>";
+    }
+}

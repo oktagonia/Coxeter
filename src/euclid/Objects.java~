@@ -1,0 +1,27 @@
+package euclid;
+
+import java.util.ArrayList;
+
+class Objects extends ArrayList<GeometricObject> {
+    public ArrayList<Line> lines() {
+        ArrayList<Line> lines = new ArrayList<Line>();
+        for (GeometricObject object: this) {
+            if (object instanceof Line) {
+                lines.add((Line) object);
+            }
+        }
+        
+        return lines;
+    }
+    
+    public ArrayList<Point> points() {
+        ArrayList<Point> points = new ArrayList<Point>();
+        for (GeometricObject object: objects) {
+            if (object instanceof this) {
+                points.add((Point) object);
+            }
+        }
+        
+        return points;
+    }
+}

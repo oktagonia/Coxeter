@@ -1,0 +1,16 @@
+package csp;
+
+import java.util.ArrayList;
+
+public class Constraints extends ArrayList<Constraint> {
+    public double error() {
+        double sum = 0;
+        double error = 0;
+        for (int i = 0; i < this.size(); i++) {
+            error = this.get(i).error();
+            if (error <= 1) continue;
+            sum += error;
+        }
+        return sum;
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<space>
+
+    <constraints>
+    </constraints>
+
+    <parameters>
+        <parameter value='178.000000' locked='true'></parameter>
+        <parameter value='327.000000' locked='true'></parameter>
+        <parameter value='282.000000' locked='true'></parameter>
+        <parameter value='80.000000' locked='true'></parameter>
+        <parameter value='526.000000' locked='true'></parameter>
+        <parameter value='342.000000' locked='true'></parameter>
+    </parameters>
+
+    <objects>
+        <point type='NORMAL' A='0' B='1' locked='false'></point>
+        <point type='NORMAL' A='2' B='3' locked='false'></point>
+        <line A='0' B='1' locked='false'></line>
+        <point type='NORMAL' A='4' B='5' locked='false'></point>
+        <line A='1' B='3' locked='false'></line>
+        <line A='3' B='0' locked='false'></line>
+    </objects>
+
+</space>

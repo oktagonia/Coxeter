@@ -1,0 +1,10 @@
+package csp;
+
+import neo.Vector;
+import euclid.GeometricObject;
+
+public interface Constraint {
+    public double error();
+    public GeometricObject[] objects();
+    public String toString();
+}

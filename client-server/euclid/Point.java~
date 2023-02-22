@@ -1,0 +1,95 @@
+package euclid;
+
+import neo.Vector;
+import java.awt.Graphics;
+
+public class Point extends GeometricObject {
+    Parameter P, Q;
+    public static final int RADIUS = 4;
+    
+    public Point(Parameter P, Parameter Q, String label) {
+        super(label);
+        this.P = P;
+        this.Q = Q;
+    }
+    
+    public Point(Point a, String label) {
+        super(label);
+        this.P = a.P;
+        this.Q = a.Q;
+    }
+    
+    public Point(double x, double y) {
+        super();
+        this.P = new Parameter(x);
+        this.Q = new Parameter(y);
+    }
+    
+    public void lock() {
+        this.locked = true;
+        P.locked = true;
+        Q.locked = true;
+    }
+    
+    public void unlock() {
+        this.locked = false;
+        P.locked = false;
+        Q.locked = false;
+    }
+    
+    public String label() {
+        return label;
+    }
+    
+    public void update(int x, int y) {
+        P.value += x;
+        Q.value += y;
+    }
+    
+    public void update(Vector v) {
+        update((int) v.get(0), (int) v.get(1));
+    }
+    
+    public Parameter getX() {
+        return P;
+    }
+    
+    public Parameter getY() {
+        return Q;
+    }
+    
+    public int first() {
+        return (int) P.get(); 
+    }
+    
+    public int second() {
+        return (int) Q.get();
+    }
+    
+    public Vector getPoint() {
+        return new Vector(first(), second());
+    }
+    
+    public double distance(Point that) {
+        return this.getPoint().minus(that.getPoint()).magnitude();
+    }
+    
+    public String inspect() {
+        return String.format("Point:\n  « %d, %d »\n\n", first(), second());
+    }
+    
+    public String toString() {
+        return String.format("<point>%s %s</point>", P, Q);
+    }
+    
+    public boolean isAt(int x, int y) {
+        return this.distance(new Point(x, y)) < 1.5 * RADIUS;
+    }
+    
+    public void render(Graphics g) {
+        int diam = 2*RADIUS;
+        int r = RADIUS;
+        g.drawString(label(), first() + diam, second() + diam);
+        g.fillOval(this.first()-r, this.second()-r, diam, diam);
+    }
+}

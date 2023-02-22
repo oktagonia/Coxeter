@@ -1,0 +1,9 @@
+class CoxeterPanel extends JPanel {
+    
+    public void addButton(JButton button, ActionListener al) {
+        button.setFocusable(false);
+        add(button);
+        button.addActionListener(al);
+    }
+    
+}
